@@ -1,0 +1,65 @@
+body {
+  margin: 0;
+  padding-top: 120px; /* Add padding to prevent content from hiding behind the navbar */
+}
+.navbar {
+ 
+  position:fixed;
+  top: 0;
+  width: 100%;
+  background-color: #333;
+  color: #fff;
+  overflow: hidden;
+ 
+
+}
+
+.navbar-logo-title {
+  display: flex;
+  align-items: center;
+}
+.names{
+  display: inline;
+}
+
+.navbar img {
+  width: 190px;
+  height: 100px;
+  margin-right: 20px;
+}
+
+.navbar-title {
+  margin: 0;
+  color: chartreuse;
+  font-size: 44px;
+}
+
+.link-container {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.link-container .home {
+  color: chartreuse;
+  text-decoration: none;
+  font-size: 38px;
+  display: flex;
+  align-items: center;
+  padding-right: 30px;
+}
+
+.link-container .home img {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+.home:hover {
+  color: rgb(211, 126, 22);
+}
+
+body {
+  margin: 0;
+  padding-top: 0px;
+}

@@ -1,0 +1,112 @@
+/* Container to hold both forms side by side */
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Styling for the select containers */
+.select-container {
+  width: 45%;
+  height: 60%;
+  padding-top: 5% ;
+  padding-bottom: 5%;
+  background-color: rgba(43, 31, 31, 0.6); 
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+  overflow: hidden;
+}
+
+.react-select-container {
+  margin-bottom: 10px;
+}
+
+.react-select__control {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 5px;
+}
+
+.react-select__menu {
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+.react-select__option--is-focused {
+  background-color: #e28d0c;
+  color: #fff;
+}
+
+.react-select__option--is-selected {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.form {
+  width: 45%;
+ 
+  position: relative;
+  margin-bottom: 50px ;
+  padding: 10px; /* Decreased padding */
+  background-color: rgba(43, 31, 31, 0.6); 
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+  overflow: hidden;
+}
+
+.form::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('super.jpeg'); 
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+.form * {
+  position: relative;
+  z-index: 1;
+}
+
+.label {
+  display: block;
+  margin-bottom: 5px; /* Decreased margin */
+  font-size: 18px; /* Decreased font size */
+  font-weight: bold;
+  color: #e28d0c;
+}
+
+.input[type="text"],
+.input[type="number"],
+.button {
+  width: calc(100% - 22px);
+  padding: 8px; /* Decreased padding */
+  margin-bottom: 8px; /* Decreased margin */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px; /* Decreased font size */
+}
+
+.button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+span{
+  color: white;
+}
+.inputimage{
+  color: aliceblue;
+  background-color: #e28d0c;
+}

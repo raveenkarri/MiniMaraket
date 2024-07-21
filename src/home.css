@@ -1,0 +1,68 @@
+/* Home.css */
+
+  
+  .home-container {
+    background-color: rgb(164, 35, 189,0.3);
+    padding-top: 70px;
+    padding-bottom: 250px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+  }
+  
+  .retailer, .customer {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px 40px;
+    width: 300px;
+    height: 300px; /* Adjust height as needed */
+    transition: transform 0.3s ease;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .retailer {
+    background-image: url('../public/retailer.jpeg');
+  }
+  
+  .customer {
+    background-image: url('../public/customer.jpeg');
+  }
+  
+  .retailer:hover, .customer:hover {
+    transform: scale(1.05);
+  }
+  
+  .h1 {
+    font-size: 34px;
+    margin-bottom: 200px;
+    color: rgb(214, 41, 41);
+  }
+  
+  .button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 18px;
+    color: #ffffff;
+    background-color: rgba(5, 31, 60, 0.8);
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+  }
+  
+  .button:hover {
+    background-color: rgba(215, 220, 225, 0.8);
+    color: black;
+  }
+  
