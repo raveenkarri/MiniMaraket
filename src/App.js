@@ -10,7 +10,7 @@ import Products from './Products';
 import Footer from './Footer';
 import ProductList from './ProductList';
 import Product from './Product';
-import { components } from 'react-select';
+
 // this is main component
 
 function App() {
