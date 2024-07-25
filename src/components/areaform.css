@@ -7,9 +7,9 @@
 /* Styling for the select containers */
 .select-container {
   width: 45%;
-  height: 60%;
+  height: 80%;
   padding-top: 5% ;
-  padding-bottom: 5%;
+  padding-bottom: 50%;
   background-color: rgba(43, 31, 31, 0.6); 
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);

@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { useLocation, useNavigate } from 'react-router-dom';
-import './productlist.css';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { useLocation, useNavigate } from "react-router-dom";
+import "./productlist.css";
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -12,10 +12,12 @@ const ProductList = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await axios.get(`http://localhost:5002/areas/${selectedArea}/${selectedCategory}/${selectedShop}`);
+        const res = await axios.get(
+          `https://mini-market-api.onrender.com/areas/${selectedArea}/${selectedCategory}/${selectedShop}`
+        );
         setProducts(res.data);
       } catch (error) {
-        console.error('Error fetching products:', error); 
+        console.error("Error fetching products:", error);
       }
     };
 
@@ -25,14 +27,14 @@ const ProductList = () => {
   }, [selectedShop, selectedArea, selectedCategory]);
 
   const productHandler = (productName) => {
-    if(productName){
-      navigate('/product', {
+    if (productName) {
+      navigate("/product", {
         state: {
           producttoProductpage: productName,
           selectedAreaName: selectedArea,
           selectedCategoryName: selectedCategory,
-          selectedShopName: selectedShop
-        }
+          selectedShopName: selectedShop,
+        },
       });
     }
   };
@@ -43,8 +45,14 @@ const ProductList = () => {
       <div className="product-grid">
         {products.map((product, index) => (
           <div className="product-item" key={index}>
-            <img src={`http://localhost:5002/${product.image}`} alt={product.productname} />
-            <button className="product-button" onClick={() => productHandler(product.productname)}>
+            <img
+              src={`http://localhost:5002/${product.image}`}
+              alt={product.productname}
+            />
+            <button
+              className="product-button"
+              onClick={() => productHandler(product.productname)}
+            >
               <h3>{product.productname}</h3>
             </button>
           </div>
