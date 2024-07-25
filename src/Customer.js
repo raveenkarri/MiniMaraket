@@ -17,7 +17,7 @@ const Customer = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://mini-market-api.onrender.com/customers",
+        "https://mini-market-api.onrender.com/customers/register",
         formData
       );
       console.log(response.data);
