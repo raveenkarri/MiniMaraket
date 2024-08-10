@@ -20,7 +20,9 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("/customers/login", formData);
+      const response = await axios.post("/customers/login", formData, {
+        withCredentials: true,
+      });
       setToken(response.data.accessToken);
       navigate("/products");
 
