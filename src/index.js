@@ -17,7 +17,7 @@ export const contextStore = createContext();
 const StoreProvider = ({ children }) => {
   const [token, setToken] = useState(() => Cookies.get("token"));
   const [itemsLen, setItemslen] = useState(0);
-  // Update `sessionStorage` whenever `token` changes
+
   useEffect(() => {
     if (token) {
       Cookies.set("token", token);
