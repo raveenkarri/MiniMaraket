@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./navbar.css";
 import { contextStore } from "../..";
 import axios from "axios";
-
+axios.defaults.withCredentials = true;
 const Navbar = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState("");
@@ -12,7 +12,7 @@ const Navbar = () => {
   useEffect(() => {
     const getUser = async () => {
       try {
-        const res = await axios.get("/customers");
+        const res = await axios.get("/customers", { withCredentials: true });
         if (res.data.user.username) {
           setUser(res.data.user.username);
         }
