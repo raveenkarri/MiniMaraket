@@ -3,7 +3,7 @@ import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./login.css";
 import { contextStore } from "../../index";
-axios.defaults.withCredentials = true;
+
 const Login = () => {
   const { setToken } = useContext(contextStore);
   const [formData, setFormData] = useState({
@@ -20,9 +20,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("/customers/login", formData, {
-        withCredentials: true,
-      });
+      const response = await axios.post("/customers/login", formData);
       setToken(response.data.accessToken);
       navigate("/products");
 
