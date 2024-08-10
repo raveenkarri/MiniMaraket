@@ -16,10 +16,7 @@ const Customer = () => {
   const onsubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        "https://mini-market-api.onrender.com/customers/register",
-        formData
-      );
+      const response = await axios.post("/customers/register", formData);
       console.log(response.data);
       alert("Details submitted");
       setFormData({ username: "", password: "" });
@@ -70,7 +67,11 @@ const Customer = () => {
         </legend>
       </div>
       <div>
-        <img className="imageclass" src="/registerform.jpeg" alt="register" />
+        <img
+          className="imageclass"
+          src="../../registerform.jpeg"
+          alt="this.register"
+        />
       </div>
     </div>
   );

@@ -63,3 +63,22 @@ body {
   margin: 0;
   padding-top: 0px;
 }
+.logout-button{
+  background-color: rgb(250, 246, 246);
+  color: black;
+  border-radius: 10px;
+  margin: 10px;
+}
+.logout-button:hover{
+  background-color: rgb(250, 13, 13);
+  color: black;
+  border-radius: 10px;
+ 
+}
+
+.cart-button{
+  background-color: rgb(231, 229, 229);
+  color: black;
+  border-radius: 10px;
+  margin-right: 20px;
+}

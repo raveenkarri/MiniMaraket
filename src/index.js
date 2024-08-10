@@ -1,17 +1,50 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import React, { useState, createContext, useEffect } from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import axios from "axios";
+import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "./store/store";
+import Cookies from "js-cookie";
 
+axios.defaults.baseURL = "http://localhost:5005"; //https://mini-market-api.onrender.com
+axios.defaults.withCredentials = true;
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+export const contextStore = createContext();
+
+// Create a provider component
+const StoreProvider = ({ children }) => {
+  const [token, setToken] = useState(() => Cookies.get("token"));
+  const [itemsLen, setItemslen] = useState(0);
+  // Update `sessionStorage` whenever `token` changes
+  useEffect(() => {
+    if (token) {
+      Cookies.set("token", token);
+    } else {
+      Cookies.remove("token");
+    }
+  }, [token]);
+
+  return (
+    <contextStore.Provider value={{ token, setToken, itemsLen, setItemslen }}>
+      {children}
+    </contextStore.Provider>
+  );
+};
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Provider store={store}>
+        <StoreProvider>
+          <App />
+        </StoreProvider>
+      </Provider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-

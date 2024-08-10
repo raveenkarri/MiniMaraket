@@ -1,9 +1,11 @@
 import axios from "axios";
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./login.css";
+import { contextStore } from "../../index";
 
 const Login = () => {
+  const { setToken } = useContext(contextStore);
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -18,15 +20,12 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        "https://mini-market-api.onrender.com/customers/login",
-        formData
-      );
-      if (response.status === 200) {
-        navigate("/products");
-      } else {
-        alert("Username or password incorrect!!!!");
-      }
+      const response = await axios.post("/customers/login", formData, {
+        withCredentials: true,
+      });
+      setToken(response.data.accessToken);
+      navigate("/products");
+
       console.log(response.data);
       setFormData({ username: "", password: "" });
     } catch (error) {
@@ -69,6 +68,7 @@ const Login = () => {
             <button type="submit" className="login-button">
               Submit
             </button>
+            <Link to="/customer">Don't have an accout!</Link>
           </form>
         </div>
       </div>

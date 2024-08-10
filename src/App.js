@@ -1,36 +1,75 @@
-import React from 'react';
-import Navbar from './Navbar';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import AreaForm from './components/AreaForm';
-import { BrowserRouter,Routes,Route } from 'react-router-dom';
-import Home from './Home';
-import  Customer from './Customer'
-import Login from './Login';
-import Products from './Products';
-import Footer from './Footer';
-import ProductList from './ProductList';
-import Product from './Product';
+import React, { useContext } from "react";
+import Navbar from "./components/navbar/Navbar";
+import "bootstrap/dist/css/bootstrap.min.css";
+import AreaForm from "./components/shopform/AreaForm";
+import { Routes, Route } from "react-router-dom";
+import Home from "./components/home/Home";
+import Customer from "./components/register/Customer";
+import Login from "./components/login/Login";
+import Products from "./components/products/Products";
+import Footer from "./components/footer/Footer";
+import ProductList from "./components/products/ProductList";
+import Product from "./components/products/Product";
+import ErrorPage from "./errorPage";
+import { contextStore } from ".";
 
-// this is main component
+import MyCart from "./components/MyCart";
+
+const ProtectedRoute = ({ children }) => {
+  const { token } = useContext(contextStore);
+  return token ? children : <ErrorPage />;
+};
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-       <header><Navbar/></header>
+      <header>
+        <Navbar />
+      </header>
       <Routes>
-      <Route path='/' element={<Home/>}/>
-        <Route path='/shopregistration' element={<AreaForm/>}/>
-        <Route path='/customer' element={<Customer/>}/>
-        <Route path='/login' element={<Login/>}/>
-        <Route path='/products' element={<Products/>}/>
-        <Route path='/product' element={<Product/>}/>
-        <Route path='/productlist' element={<ProductList/>}/>
-        </Routes>
-        
-        <footer><Footer/></footer>
-        </BrowserRouter>
-     
+        <Route path="*" element={<ErrorPage />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/shopregistration" element={<AreaForm />} />
+        <Route path="/customer" element={<Customer />} />
+
+        <Route path="/login" element={<Login />} />
+        <Route
+          path="/mycart"
+          element={
+            <ProtectedRoute>
+              <MyCart />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/products"
+          element={
+            <ProtectedRoute>
+              <Products />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/product"
+          element={
+            <ProtectedRoute>
+              <Product />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/productlist"
+          element={
+            <ProtectedRoute>
+              <ProductList />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
+
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 }

@@ -13,7 +13,7 @@ const ProductList = () => {
     const fetchProducts = async () => {
       try {
         const res = await axios.get(
-          `https://mini-market-api.onrender.com/areas/${selectedArea}/${selectedCategory}/${selectedShop}`
+          `/areas/${selectedArea}/${selectedCategory}/${selectedShop}`
         );
         setProducts(res.data);
       } catch (error) {
@@ -30,7 +30,7 @@ const ProductList = () => {
     if (productName) {
       navigate("/product", {
         state: {
-          producttoProductpage: productName,
+          selectedProduct: productName,
           selectedAreaName: selectedArea,
           selectedCategoryName: selectedCategory,
           selectedShopName: selectedShop,
@@ -46,7 +46,7 @@ const ProductList = () => {
         {products.map((product, index) => (
           <div className="product-item" key={index}>
             <img
-              src={`http://localhost:5002/${product.image}`}
+              src={`http://localhost:5005/${product.image}`}
               alt={product.productname}
             />
             <button

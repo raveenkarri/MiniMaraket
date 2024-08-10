@@ -12,7 +12,7 @@ const CustomerView = () => {
 
   const navigate = useNavigate();
   const fetchAreas = async () => {
-    const res = await axios.get("https://mini-market-api.onrender.com/areas");
+    const res = await axios.get("/areas");
     setAreas(res.data);
   };
 

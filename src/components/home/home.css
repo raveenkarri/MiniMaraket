@@ -31,11 +31,11 @@
   }
   
   .retailer {
-    background-image: url('../public/retailer.jpeg');
+    background-image: url('../../../public/retailer.jpeg');
   }
   
   .customer {
-    background-image: url('../public/customer.jpeg');
+    background-image: url('../../../public/customer.jpeg');
   }
   
   .retailer:hover, .customer:hover {

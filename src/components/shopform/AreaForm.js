@@ -20,7 +20,7 @@ const AreaForm = () => {
   const [formData, setFormData] = useState(initialFormData);
 
   const fetchAreas = async () => {
-    const res = await axios.get("https://mini-market-api.onrender.com/areas");
+    const res = await axios.get("/areas");
     setAreas(res.data);
   };
 
@@ -100,15 +100,11 @@ const AreaForm = () => {
     });
 
     try {
-      const response = await axios.post(
-        "https://mini-market-api.onrender.com/areas",
-        data,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      const response = await axios.post("/areas", data, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
       alert("Submitted successfully!");
       console.log(response.data);
       // Reset form data to initial state
