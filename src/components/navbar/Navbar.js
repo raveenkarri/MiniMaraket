@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./navbar.css";
 import { contextStore } from "../..";
 import axios from "axios";
+import Cookies from "js-cookie";
 axios.defaults.withCredentials = true;
 const Navbar = () => {
   const navigate = useNavigate();
@@ -27,6 +28,7 @@ const Navbar = () => {
 
     if (userConfirmed) {
       setToken("");
+      Cookies.remove("token");
       navigate("/");
     } else {
       console.log("Can't logout!");

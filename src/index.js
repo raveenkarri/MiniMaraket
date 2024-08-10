@@ -17,13 +17,13 @@ const StoreProvider = ({ children }) => {
   const [token, setToken] = useState(() => Cookies.get("token"));
   const [itemsLen, setItemslen] = useState(0);
 
-  useEffect(() => {
-    if (token) {
-      Cookies.set("token", token);
-    } else {
-      Cookies.remove("token");
-    }
-  }, [token]);
+  // useEffect(() => {
+  //   if (token) {
+  //     Cookies.set("token", token);
+  //   } else {
+  //     Cookies.remove("token");
+  //   }
+  // }, [token]);
 
   return (
     <contextStore.Provider value={{ token, setToken, itemsLen, setItemslen }}>
