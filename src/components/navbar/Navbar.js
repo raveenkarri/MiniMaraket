@@ -11,7 +11,7 @@ const Navbar = () => {
   const location = useLocation();
   useEffect(() => {
     const getUser = async () => {
-      const res = await axios.get("/customers", { withCredentials: true });
+      const res = await axios.get("/customers");
       if (res.data.user.username) {
         setUser(res.data.user.username);
       }

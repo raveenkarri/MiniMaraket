@@ -46,7 +46,7 @@ const ProductList = () => {
         {products.map((product, index) => (
           <div className="product-item" key={index}>
             <img
-              src={`http://localhost:5005/${product.image}`}
+              src={`https://mini-market-api.onrender.com/${product.image}`}
               alt={product.productname}
             />
             <button

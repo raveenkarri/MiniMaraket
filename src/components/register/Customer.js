@@ -16,9 +16,7 @@ const Customer = () => {
   const onsubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("/customers/register", formData, {
-        withCredentials: true,
-      });
+      const response = await axios.post("/customers/register", formData);
       console.log(response.data);
       alert("Details submitted");
       setFormData({ username: "", password: "" });
