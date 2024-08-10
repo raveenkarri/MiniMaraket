@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./customer.css";
-
+axios.defaults.withCredentials = true;
 const Customer = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -16,7 +16,9 @@ const Customer = () => {
   const onsubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("/customers/register", formData);
+      const response = await axios.post("/customers/register", formData, {
+        withCredentials: true,
+      });
       console.log(response.data);
       alert("Details submitted");
       setFormData({ username: "", password: "" });
