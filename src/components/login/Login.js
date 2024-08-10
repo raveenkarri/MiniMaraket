@@ -3,7 +3,7 @@ import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./login.css";
 import { contextStore } from "../../index";
-
+axios.defaults.withCredentials = true;
 const Login = () => {
   const { setToken } = useContext(contextStore);
   const [formData, setFormData] = useState({
