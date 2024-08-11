@@ -22,6 +22,7 @@ const Login = () => {
     try {
       const response = await axios.post("/customers/login", formData, {
         withCredentials: true,
+        preflightContinue: true,
       });
       setToken(response.data.accessToken);
       navigate("/products");
