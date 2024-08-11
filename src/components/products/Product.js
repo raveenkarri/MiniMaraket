@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 import "./Product.css";
 import Store from "../../store/store";
 import { contextStore } from "../..";
-
+axios.defaults.withCredentials = true;
 const Product = () => {
   const [product, setProduct] = useState(null);
   const { setItemslen } = useContext(contextStore);
@@ -56,9 +56,13 @@ const Product = () => {
 
   const addtoCart = async () => {
     try {
-      const res = await axios.post("/customers/cartItems", {
-        cartProducts: [cartProducts],
-      });
+      const res = await axios.post(
+        "/customers/cartItems",
+        {
+          cartProducts: [cartProducts],
+        },
+        { withCredentials: true }
+      );
       console.log(res.data);
       setItemslen((prev) => prev + 1);
       alert("Item added successfully");

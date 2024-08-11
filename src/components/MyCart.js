@@ -27,7 +27,9 @@ const MyCart = () => {
   };
   const deleteItem = async (id) => {
     try {
-      const res = await axios.delete(`/customers/delete/${id}`);
+      const res = await axios.delete(`/customers/delete/${id}`, {
+        withCredentials: true,
+      });
       const confirmDelete = window.confirm("Confirm Delete?");
       if (confirmDelete) {
         getCartItems();
