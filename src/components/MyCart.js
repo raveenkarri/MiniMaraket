@@ -17,7 +17,7 @@ const MyCart = () => {
       const res = await axios.get("/customers/getItems", {
         withCredentials: true,
       });
-
+      console.log(res.data.cartProducts);
       setItems(res.data.cartProducts);
       setUsername(res.data.user.username);
       setItemslen(res.data.cartProducts.length);
@@ -62,12 +62,7 @@ const MyCart = () => {
           ))}
         </ul>
       ) : (
-        // <>
-        //   <h3>
         <h3> No Items found! please add products</h3>
-        //     <Link to="/productlist">Add Products</Link>
-        //   </h3>
-        // </>
       )}
     </div>
   );
