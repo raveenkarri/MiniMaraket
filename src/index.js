@@ -9,7 +9,9 @@ import store from "./store/store";
 import Cookies from "js-cookie";
 
 axios.defaults.baseURL = "https://mini-market-api.onrender.com"; //https://mini-market-api.onrender.com
+
 axios.defaults.withCredentials = true;
+axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
 export const contextStore = createContext();
 
 // Create a provider component
