@@ -73,7 +73,7 @@ const Product = () => {
         <div className="product-content">
           <img
             className="product-image"
-            src={`http://localhost:5005/${product.image}`}
+            src={`https://mini-market-api.onrender.com/${product.image}`}
             alt={product.productname}
           />
           <div className="product-details">
