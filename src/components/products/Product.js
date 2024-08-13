@@ -61,9 +61,8 @@ const Product = () => {
     try {
       const res = await fetchAddCartItems(cartProducts, token);
 
-      console.log(res);
       setItemslen((prev) => prev + 1);
-      alert("Item added successfully");
+      alert(res.message);
     } catch (error) {
       alert("Item adding failed");
     }
@@ -74,7 +73,7 @@ const Product = () => {
         <div className="product-content">
           <img
             className="product-image"
-            src={`https://mini-market-api.onrender.com/${product.image}`}
+            src={`http://localhost:5005/${product.image}`}
             alt={product.productname}
           />
           <div className="product-details">

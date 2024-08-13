@@ -2,45 +2,48 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./navbar.css";
 import { contextStore } from "../..";
-
 import Cookies from "js-cookie";
-import { fetchUser } from "../AxiosFunctions";
+import { fetchUser, fetchCartItems } from "../AxiosFunctions";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState("");
-  const { token, setToken, itemsLen } = useContext(contextStore);
+  const { token, setToken, itemsLen, setItemslen } = useContext(contextStore); // Include setItemslen
+
   const location = useLocation();
+
   useEffect(() => {
-    const getUser = async () => {
+    const getUserAndCartItems = async () => {
       try {
         if (token) {
           const res = await fetchUser(token);
-
           setUser(res.user.username);
-        } else {
-          console.log("After login");
+
+          // Fetch cart items and update itemsLen
+          const cartRes = await fetchCartItems(token);
+          setItemslen(cartRes.cartProducts.length);
         }
       } catch (error) {
         console.log(error);
       }
     };
-    getUser();
+
+    getUserAndCartItems();
   }, [token]);
+
   const handleLogout = () => {
     const userConfirmed = window.confirm("Are you sure you want to log out?");
-
     if (userConfirmed) {
       setToken("");
       Cookies.remove("token");
       navigate("/");
-    } else {
-      console.log("Can't logout!");
     }
   };
+
   const goToCart = () => {
     navigate("/mycart");
   };
+
   const pageNames = {
     "/": token
       ? `Hi ${user}, Welcome to the Home Page `
@@ -51,9 +54,11 @@ const Navbar = () => {
     "/products": "Browse Our Products",
     "/productlist": "Select Products and place your order!!",
     "/product": "Product Details",
-    "/mycart": "welcom to your cart",
+    "/mycart": "Welcome to your cart",
   };
+
   const currentPageName = pageNames[location.pathname] || "Page";
+
   return (
     <nav className="navbar">
       <div className="navbar-logo-title">
@@ -78,7 +83,7 @@ const Navbar = () => {
               Logout
             </button>
 
-            <button className="cart-button " type="button" onClick={goToCart}>
+            <button className="cart-button" type="button" onClick={goToCart}>
               My Cart<i style={{ color: "blue" }}>({itemsLen})</i>
             </button>
           </>

@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
-
 import { contextStore } from "../../index";
 import { fetchCartItems, fetchDeleteCartItems } from "../AxiosFunctions";
 
 const MyCart = () => {
   const [items, setItems] = useState([]);
-  const { token, setItemslen } = useContext(contextStore);
+  const { token, setItemslen } = useContext(contextStore); // Include setItemslen
   const [username, setUsername] = useState("");
+
   useEffect(() => {
     getCartItems();
   }, []);
@@ -14,14 +14,14 @@ const MyCart = () => {
   const getCartItems = async () => {
     try {
       const res = await fetchCartItems(token);
-
       setItems(res.cartProducts);
       setUsername(res.user.username);
-      setItemslen(res.cartProducts.length);
+      setItemslen(res.cartProducts.length); // Update itemsLen here
     } catch (error) {
       console.error("Error fetching cart items:", error);
     }
   };
+
   const deleteItem = async (id) => {
     try {
       const confirmDelete = window.confirm("Confirm Delete?");
@@ -36,7 +36,7 @@ const MyCart = () => {
 
   return (
     <div>
-      <h1>Hi {username},Your Cart</h1>
+      <h1>Hi {username}, Your Cart</h1>
       <h1>
         Total items cost:
         {items.length > 0
@@ -57,7 +57,7 @@ const MyCart = () => {
           ))}
         </ul>
       ) : (
-        <h3> No Items found! please add products</h3>
+        <h3>No Items found! Please add products</h3>
       )}
     </div>
   );
