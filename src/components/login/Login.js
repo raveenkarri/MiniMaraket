@@ -1,9 +1,9 @@
-import axios from "axios";
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./login.css";
 import { contextStore } from "../../index";
-axios.defaults.withCredentials = true;
+import { fetchLogin } from "../AxiosFunctions";
+
 const Login = () => {
   const { setToken } = useContext(contextStore);
   const [formData, setFormData] = useState({
@@ -20,14 +20,12 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("/customers/login", formData, {
-        withCredentials: true,
-        preflightContinue: true,
-      });
-      setToken(response.data.accessToken);
+      const response = await fetchLogin(formData);
+      console.log(response);
+      setToken(response.accessToken);
       navigate("/products");
 
-      console.log(response.data);
+      console.log(response);
       setFormData({ username: "", password: "" });
     } catch (error) {
       console.error(error);

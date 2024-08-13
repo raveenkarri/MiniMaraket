@@ -2,9 +2,10 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./navbar.css";
 import { contextStore } from "../..";
-import axios from "axios";
+
 import Cookies from "js-cookie";
-axios.defaults.withCredentials = true;
+import { fetchUser } from "../AxiosFunctions";
+
 const Navbar = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState("");
@@ -13,16 +14,19 @@ const Navbar = () => {
   useEffect(() => {
     const getUser = async () => {
       try {
-        const res = await axios.get("/customers", { withCredentials: true });
-        if (res.data.user.username) {
-          setUser(res.data.user.username);
+        if (token) {
+          const res = await fetchUser(token);
+
+          setUser(res.user.username);
+        } else {
+          console.log("After login");
         }
       } catch (error) {
         console.log(error);
       }
     };
     getUser();
-  }, []);
+  }, [token]);
   const handleLogout = () => {
     const userConfirmed = window.confirm("Are you sure you want to log out?");
 

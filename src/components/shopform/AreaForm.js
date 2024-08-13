@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Select from "react-select";
 import "./areaform.css";
+import { fetchAppAreas } from "../AxiosFunctions";
 
 const AreaForm = () => {
   const [areas, setAreas] = useState([]);
@@ -20,8 +21,8 @@ const AreaForm = () => {
   const [formData, setFormData] = useState(initialFormData);
 
   const fetchAreas = async () => {
-    const res = await axios.get("/areas");
-    setAreas(res.data);
+    const res = await fetchAppAreas();
+    setAreas(res);
   };
 
   useEffect(() => {

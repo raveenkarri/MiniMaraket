@@ -1,12 +1,11 @@
-import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 
-import { contextStore } from "..";
-axios.defaults.withCredentials = true;
+import { contextStore } from "../../index";
+import { fetchCartItems, fetchDeleteCartItems } from "../AxiosFunctions";
 
 const MyCart = () => {
   const [items, setItems] = useState([]);
-  const { setItemslen } = useContext(contextStore);
+  const { token, setItemslen } = useContext(contextStore);
   const [username, setUsername] = useState("");
   useEffect(() => {
     getCartItems();
@@ -14,24 +13,20 @@ const MyCart = () => {
 
   const getCartItems = async () => {
     try {
-      const res = await axios.get("/customers/getItems", {
-        withCredentials: true,
-      });
-      console.log(res.data.cartProducts);
-      setItems(res.data.cartProducts);
-      setUsername(res.data.user.username);
-      setItemslen(res.data.cartProducts.length);
+      const res = await fetchCartItems(token);
+
+      setItems(res.cartProducts);
+      setUsername(res.user.username);
+      setItemslen(res.cartProducts.length);
     } catch (error) {
       console.error("Error fetching cart items:", error);
     }
   };
   const deleteItem = async (id) => {
     try {
-      const res = await axios.delete(`/customers/delete/${id}`, {
-        withCredentials: true,
-      });
       const confirmDelete = window.confirm("Confirm Delete?");
       if (confirmDelete) {
+        await fetchDeleteCartItems(id, token);
         getCartItems();
       }
     } catch (error) {

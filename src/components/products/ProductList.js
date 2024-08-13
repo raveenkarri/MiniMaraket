@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+
 import { useLocation, useNavigate } from "react-router-dom";
 import "./productlist.css";
+import { fetchAppProducts } from "../AxiosFunctions";
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -12,10 +13,12 @@ const ProductList = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await axios.get(
-          `/areas/${selectedArea}/${selectedCategory}/${selectedShop}`
+        const res = await fetchAppProducts(
+          selectedArea,
+          selectedCategory,
+          selectedShop
         );
-        setProducts(res.data);
+        setProducts(res);
       } catch (error) {
         console.error("Error fetching products:", error);
       }

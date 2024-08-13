@@ -13,7 +13,7 @@ import Product from "./components/products/Product";
 import ErrorPage from "./errorPage";
 import { contextStore } from ".";
 
-import MyCart from "./components/MyCart";
+import MyCart from "./components/cart/MyCart";
 
 const ProtectedRoute = ({ children }) => {
   const { token } = useContext(contextStore);

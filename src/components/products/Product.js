@@ -1,13 +1,13 @@
-import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import "./Product.css";
-import Store from "../../store/store";
+
 import { contextStore } from "../..";
-axios.defaults.withCredentials = true;
+import { fetchAddCartItems, fetchSingleProduct } from "../AxiosFunctions";
+
 const Product = () => {
   const [product, setProduct] = useState(null);
-  const { setItemslen } = useContext(contextStore);
+  const { token, setItemslen } = useContext(contextStore);
   const location = useLocation();
   const {
     selectedProduct,
@@ -24,16 +24,19 @@ const Product = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const res = await axios.get(
-          `/areas/${selectedAreaName}/${selectedCategoryName}/${selectedShopName}/${selectedProduct}`
+        const res = await fetchSingleProduct(
+          selectedAreaName,
+          selectedCategoryName,
+          selectedShopName,
+          selectedProduct
         );
         // Set cartProducts after product is fetched
         setCartProducts({
-          productname: res.data.productname,
-          cost: res.data.cost,
-          description: res.data.description,
+          productname: res.productname,
+          cost: res.cost,
+          description: res.description,
         });
-        setProduct(res.data);
+        setProduct(res);
       } catch (error) {
         console.error("Error fetching product:", error);
       }
@@ -56,14 +59,9 @@ const Product = () => {
 
   const addtoCart = async () => {
     try {
-      const res = await axios.post(
-        "/customers/cartItems",
-        {
-          cartProducts: [cartProducts],
-        },
-        { withCredentials: true }
-      );
-      console.log(res.data);
+      const res = await fetchAddCartItems(cartProducts, token);
+
+      console.log(res);
       setItemslen((prev) => prev + 1);
       alert("Item added successfully");
     } catch (error) {
@@ -76,7 +74,7 @@ const Product = () => {
         <div className="product-content">
           <img
             className="product-image"
-            src={`https://mini-market-api.onrender.com/${product.image}`}
+            src={`"https://mini-market-api.onrender.com"/${product.image}`}
             alt={product.productname}
           />
           <div className="product-details">

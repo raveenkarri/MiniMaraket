@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+
 import Select from "react-select";
 import { useNavigate } from "react-router-dom";
+import { fetchAppAreas } from "../AxiosFunctions";
 
 const CustomerView = () => {
   const [areas, setAreas] = useState([]);
@@ -11,12 +12,12 @@ const CustomerView = () => {
   const [shops, setShops] = useState([]);
 
   const navigate = useNavigate();
-  const fetchAreas = async () => {
-    const res = await axios.get("/areas");
-    setAreas(res.data);
-  };
 
   useEffect(() => {
+    const fetchAreas = async () => {
+      const res = await fetchAppAreas();
+      setAreas(res);
+    };
     fetchAreas();
   }, []);
 
@@ -100,16 +101,6 @@ const CustomerView = () => {
             />
           </div>
           <div>
-            {/* <Select
-              className='react-select-container'
-              classNamePrefix='react-select'
-              value={selectedShop}
-              onChange={shopHandler}
-              options={areas.find(area => area.areaname === (selectedArea ? selectedArea.value : ''))?.categories.find(cat => cat.category === (selectedCategory ? selectedCategory.value : ''))?.shops.map(shop => ({ value: shop.shopname, label: shop.shopname }))}
-              placeholder="Search Shopname"
-              isDisabled={!selectedCategory}
-              styles={customStyles}
-            /> */}
             <select value={selectedShop} onChange={shopHandler}>
               <option value="">select a shop</option>
               {shops.map((shop) => {
@@ -123,9 +114,6 @@ const CustomerView = () => {
           </div>
         </form>
       </div>
-
-      {/* Render ProductList component when a shop is selected */}
-      {/* // {selectedArea && selectedCategory && selectedShop && ( */}
     </div>
   );
 };

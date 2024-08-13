@@ -1,7 +1,7 @@
-import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./customer.css";
+import { fetchRegister } from "../AxiosFunctions";
 
 const Customer = () => {
   const navigate = useNavigate();
@@ -16,8 +16,8 @@ const Customer = () => {
   const onsubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("/customers/register", formData);
-      console.log(response.data);
+      const res = await fetchRegister(formData);
+      console.log(res);
       alert("Details submitted");
       setFormData({ username: "", password: "" });
       navigate("/login");
