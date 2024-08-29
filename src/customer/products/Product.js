@@ -3,10 +3,10 @@ import { useLocation } from "react-router-dom";
 import "./Product.css";
 import axios from "axios";
 import { contextStore } from "../..";
-import { fetchAddCartItems, fetchSingleProduct } from "../../AxiosFunctions";
+import { fetchAddCartItems } from "../../AxiosFunctions";
 
 const Product = () => {
-  const [product, setProduct] = useState(null);
+  const [product, setProduct] = useState([]);
   const { token, setItemslen } = useContext(contextStore);
   const location = useLocation();
   const {
@@ -15,12 +15,6 @@ const Product = () => {
     selectedCategoryName,
     selectedShopName,
   } = location.state;
-  const [cartProducts, setCartProducts] = useState({
-    productname: " ",
-    cost: null,
-    description: " ",
-    imageUrl: "",
-  });
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -28,29 +22,22 @@ const Product = () => {
         const res = await axios.get(
           `/shops/${selectedAreaName}/${selectedCategoryName}/${selectedShopName}`
         );
-        console.log(res);
-        console.log(location.state);
 
         let products = res.data.shops[0].products;
-        console.log({ products });
-        setProduct(
-          products.filter((product) => product.productname === selectedProduct)
+        const filteredProduct = products.filter(
+          (product) => product.productname === selectedProduct
         );
 
-        //setProduct(res.data.shops[0]);
+        if (filteredProduct.length > 0) {
+          setProduct(filteredProduct);
+        } else {
+          console.error("Product not found");
+        }
       } catch (error) {
         console.error("Error fetching product:", error);
       }
     };
-
-    // if (
-    //   selectedselctedShopName &&
-    //   selectedAreaName &&
-    //   selectedCategoryName &&
-    //   selectedProduct
-    // ) {
     fetchProduct();
-    // }
   }, [
     selectedShopName,
     selectedAreaName,
@@ -59,24 +46,27 @@ const Product = () => {
   ]);
 
   const addtoCart = async () => {
+    if (product.length === 0) return;
+
+    const cartProduct = {
+      productname: product[0].productname,
+      cost: product[0].cost,
+      description: product[0].description,
+      imageUrl: product[0].imageUrl,
+    };
+
     try {
-      const res = await fetchAddCartItems(cartProducts, token);
-      // Set cartProducts after product is fetched
-      setCartProducts({
-        productname: product[0].productname,
-        cost: product[0].cost,
-        description: product[0].description,
-        imageUrl: product[0].imageUrl,
-      });
+      const res = await fetchAddCartItems(cartProduct, token);
       setItemslen((prev) => prev + 1);
       alert(res.message);
     } catch (error) {
       alert("Item adding failed");
     }
   };
+
   return (
     <div className="product-container">
-      {product ? (
+      {product.length > 0 ? (
         <div className="product-content">
           <img
             className="product-image"
@@ -84,9 +74,9 @@ const Product = () => {
             alt={product[0].productname}
           />
           <div className="product-details">
-            <h1>Prouct Name : {product[0].productname}</h1>
-            <p>Description : {product[0].description}</p>
-            <p>Price : {product.cost}</p>
+            <h1>Product Name: {product[0].productname}</h1>
+            <p>Description: {product[0].description}</p>
+            <p>Price: {product[0].cost}</p>
             <button
               className="product-addToCart"
               type="button"
