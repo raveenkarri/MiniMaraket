@@ -1,0 +1,98 @@
+.shop-register-body{
+    /* margin: 0;
+    width: 100vw;
+    height: 100vh; */
+   background-color: rgb(0, 0, 0,.9);
+
+   position: relative;
+}
+.vertical-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 5px; 
+  background-color: white; 
+  transform: translateX(-50%);
+}
+.shop-register-container{
+     font-family: "Moderustic", sans-serif;
+  font-optical-sizing: auto;
+   margin-top:0% ;
+   padding: 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.shopregister-selects,.shopregister-form{
+   padding: 10px;
+    border: 1px solid rgba(250, 246, 246, 0.8);
+    width: 400px;
+    height: 300px auto;
+ 
+    box-shadow: 0 0 5px 5px rgb(255, 255, 255,0.3);
+    
+   }
+   
+   .shopregister-select-title{
+     text-decoration: underline;
+  font-size: 30px;
+  color: rgb(245, 202, 9);
+  margin-bottom: 10px;
+   }
+   .shopregister-select{
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 10px;
+
+   }
+   .shopregister-select-button{
+   font-size: large;
+   padding: 5px;
+   width: 200px;
+   margin-left: 75px;
+   margin-top: 80px;
+   background-color: cadetblue;
+   }
+    .shopregister-select-button:hover{
+        background-color: rgb(40, 40, 58);
+        color: white;
+    }
+
+/* form css */
+
+    .shopregister-label{
+     font-size:20px ;
+     color: rgb(116, 223, 223);
+     margin: 5px;
+    }
+    .shopregister-input{
+        width: 100%;
+        padding: 10px;
+        margin: 5px;
+        border-radius: 10px;
+    }
+    .shopregister-image{
+        width: 100%;
+        color: #0c0b0b;
+        background-color: #f07f7f;
+        border-radius: 5px;
+        margin-bottom: 5px;
+        padding: 5px;
+        margin-left: 6px;
+
+    }
+    .shopregister-form-button{
+        width: 50%;
+        padding: 5px;
+        font-size: large;
+        border-radius: 5px;
+        margin-left: 25%;
+        background-color:cadetblue;
+    }
+    .shopregister-form-button:hover{
+     background-color: rgb(61, 61, 240);
+
+    }
+   

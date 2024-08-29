@@ -1,19 +1,20 @@
 .product-container {
+  margin-top: 10%;
     display: flex;
     justify-content: center;
     align-items: start;
     min-height: 100vh;
     background: linear-gradient(135deg, #f3f4f7, #e2e8f0);
-    
-    padding-top: 30px;
   }
   
   .product-content {
     display: flex;
+    margin-top: 100px;
+    margin-bottom: 0px;
     flex-direction: row;
     background: #fff;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     max-width: 800px;
     width: 100%;
@@ -47,4 +48,13 @@
     font-weight: bold;
     color: #000;
   }
-  
+  .product-addToCart{
+    border-radius: 5px;
+    padding: 5px;
+    background-color: rgb(203, 168, 235);
+    font-size: large;
+  }
+  .product-addToCart:hover{
+    background-color: rgb(49, 4, 92);
+    color: white;
+  }

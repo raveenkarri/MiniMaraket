@@ -1,38 +1,60 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Set the basic layout for the entire page */
+html, body {
+  height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-family: Arial, sans-serif;
 }
 
-.App-link {
-  color: #61dafb;
+/* Make sure the App component takes full height minus the footer */
+.App {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Navbar styling */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Main content area */
+main {
+  flex: 1;
+  padding: 80px 20px 20px; /* Adding top padding to prevent overlap with navbar */
+  background-color: #f0f0f0;
+}
+
+/* Footer styling */
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 20px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  margin-top: auto; /* Pushes footer to the bottom */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  header {
+    padding: 8px;
   }
-  to {
-    transform: rotate(360deg);
+  footer {
+    padding: 8px;
   }
 }

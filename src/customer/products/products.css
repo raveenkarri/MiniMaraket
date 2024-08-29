@@ -1,0 +1,162 @@
+/* General container styling */
+.products-container {
+  width: 90%;
+  max-width: 1200px;
+  margin-top: 10% ;
+  margin-left: 7%;
+  padding: 20px;
+  background-color: rgba(183, 183, 185, 0.9);
+  font-family: "Moderustic", sans-serif;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.products-container h1 {
+  color: #0e0202;
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.products-container hr {
+  margin-bottom: 30px;
+  border: 0;
+  border-top: 2px solid #ddd;
+}
+
+/* Select dropdown container */
+.products-select-container {
+  margin-bottom: 20px;
+}
+
+.button-products {
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button-products:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* Shops list container */
+.shops-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.shop-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Ensures the button stays at the bottom */
+  flex: 1 1 calc(33.333% - 40px);
+  max-width: 300px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.shop-item img {
+  align-content: center;
+  width: 90%;
+  height: auto;
+  max-width: 300px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+.shop-item h3 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.shop-item p {
+  font-size: 16px;
+  color: #777;
+  margin-bottom: 15px;
+}
+
+.shop-item button {
+  background-color: #28a745;
+  margin-top: auto; 
+  padding: 5px;
+  font-size: 18px ;
+  border: none;
+  border-radius: 10px;
+}
+
+.shop-item button:hover {
+  background-color: #218838;
+}
+
+
+/* Custom styles for react-select */
+.Select__control {
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  box-shadow: none;
+  transition: border-color 0.3s ease;
+}
+
+.Select__control--is-focused {
+  border-color: #007bff;
+}
+
+.Select__menu {
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.Select__menu-list {
+  padding: 0;
+}
+
+.Select__option {
+  padding: 10px;
+  font-size: 16px;
+  color: #333;
+}
+
+.Select__option:hover {
+  background-color: #f0f0f0;
+}
+
+.Select__option--is-focused {
+  background-color: #e7f3ff;
+}
+
+.Select__option--is-selected {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .shop-item {
+    flex: 1 1 calc(50% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  .shop-item {
+    flex: 1 1 100%;
+  }
+}

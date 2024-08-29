@@ -1,0 +1,106 @@
+/* General page layout */
+.customer-form-container {
+  background-color: rgb(196, 190, 190);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Moderustic", sans-serif;
+}
+
+.form-box {
+  max-width: 400px;
+  width: 100%;
+  padding: 30px;
+  margin-top: 100px;
+  background-color: rgba(241, 189, 129);
+  box-shadow: 0 4px 12px rgba(0, 0, 0);
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* Form Elements */
+.form-title {
+  color: #333;
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+}
+
+.form-label {
+  display: block;
+  font-size: 18px;
+  color: #0a0909;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.form-inputs {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #fafafa;
+  transition: background-color 0.3s ease;
+  
+}
+
+.form-inputs:focus {
+  background-color: #fff;
+  border-color: #888;
+}
+
+.form-button {
+  width: 100%;
+  padding: 8px;
+  font-size: 24px;
+  color: #fff;
+  background-color: #043b75;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  word-spacing: 2px;
+}
+
+.form-button:hover {
+  background-color: #0056b3;
+}
+
+/* Toggle between Login and Register */
+.toggle-block {
+  margin-top: 20px;
+  text-align: center;
+
+}
+
+.toggle-text {
+  font-size: 16px;
+  color: #0a0202;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.toggle-button {
+  font-size: 16px;
+  color: #efeff0;
+  background-color: #043b75;
+ width: 150px;
+ border: none;
+  padding: 10px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  border-radius: 5px;
+  text-transform: uppercase;
+   font-family: "Moderustic", sans-serif;
+ 
+}
+
+.toggle-button:hover {
+ background-color:#0056b3;
+}

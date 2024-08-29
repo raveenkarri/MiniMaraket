@@ -1,0 +1,100 @@
+/* mycart.css */
+
+.mycart-container {
+  margin-top: 10%;
+  width: 80%;
+  margin-left: 5%;
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 100px;
+}
+
+.mycart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 10px;
+}
+
+.mycart-header h1 {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+}
+
+.mycart-items ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mycart-items li {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 20px;
+  padding: 15px;
+  margin-bottom: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  align-items: center;
+}
+
+.mycart-items li div {
+  display: flex;
+  flex-direction: column;
+}
+
+.mycart-items li div span {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.mycart-items li button {
+  padding: 8px 12px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #ff4d4d;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.mycart-items li button:hover {
+  background-color: #cc0000;
+}
+
+h3 {
+  text-align: center;
+  color: #777;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .mycart-container {
+    width: 95%;
+  }
+
+  .mycart-header h1 {
+    font-size: 20px;
+  }
+
+  .mycart-items li {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .mycart-items li div {
+    margin-bottom: 10px;
+  }
+
+  .mycart-items li button {
+    width: 100%;
+  }
+}

@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./navbar.css";
 import { contextStore } from "../..";
 import Cookies from "js-cookie";
-import { fetchUser, fetchCartItems } from "../AxiosFunctions";
+import { fetchUser, fetchCartItems } from "../../AxiosFunctions";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -17,6 +17,7 @@ const Navbar = () => {
       try {
         if (token) {
           const res = await fetchUser(token);
+
           setUser(res.user.username);
 
           // Fetch cart items and update itemsLen
@@ -41,35 +42,36 @@ const Navbar = () => {
   };
 
   const goToCart = () => {
-    navigate("/mycart");
+    navigate("/customer/mycart");
   };
 
   const pageNames = {
     "/": token
       ? `Hi ${user}, Welcome to the Home Page `
       : "Please login or register",
-    "/shopregistration": "Register Your Shop Here",
-    "/customer": "Customer Portal",
-    "/login": "Login to Your Account",
-    "/products": "Browse Our Products",
-    "/productlist": "Select Products and place your order!!",
-    "/product": "Product Details",
-    "/mycart": "Welcome to your cart",
+    "/retailer/shopregister": "Register Your Shop Here",
+    "/retailer/shoplogin": "Login to your shop",
+    "/retailer/myproducts": "Add your products",
+    "/customer/logincustomer": "Login to Your Account...Or Register",
+    "/customer/products": "Browse Our Products",
+    "/customer/productlist": "Select Products and place your order!!",
+    "/customer/product": "Product Details",
+    "/customer/mycart": "Welcome to your cart",
   };
 
   const currentPageName = pageNames[location.pathname] || "Page";
 
   return (
-    <nav className="navbar">
+    <div className="navbar">
       <div className="navbar-logo-title">
-        <img src="logo.jpg" alt="example" className="navbar-logo" />
+        <img src="/navbar-logo.jpg" alt="example" className="navbar-logo" />
         <div className="names">
           <h1 className="navbar-title">
             <i>
               <b>Mini Market</b>
             </i>
           </h1>
-          <h3>{currentPageName}</h3>
+          <h2>{currentPageName}</h2>
         </div>
       </div>
       <div className="link-container">
@@ -84,15 +86,22 @@ const Navbar = () => {
             </button>
 
             <button className="cart-button" type="button" onClick={goToCart}>
-              My Cart<i style={{ color: "blue" }}>({itemsLen})</i>
+              My Cart
+              <b>
+                <i style={{ color: "red" }}>({itemsLen})</i>
+              </b>
             </button>
           </>
         )}
-        <Link id="home" className="home" to="/">
+        <Link
+          id="home"
+          className="home"
+          to={token ? "/customer/products" : "/"}
+        >
           <i className="fas fa-home home-icon"></i>
         </Link>
       </div>
-    </nav>
+    </div>
   );
 };
 

@@ -1,24 +1,117 @@
-/* Home.css */
 
+.home-container {
+  font-family: "Moderustic", sans-serif;
+  font-optical-sizing: auto;
+
+}
+
+
+
+.home-container {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 10%;
+
+}
+
+.vertical-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 5px; 
+  background-color: white; 
+  transform: translateX(-50%);
+}
+.home-retailer-name,.home-customer-name{
+  text-decoration: underline;
+  font-size: 50px;
+  color: rgb(245, 162, 9);
+}
+.home-info{
+  padding: 20px;
+  color: aqua;
+  font-size: 24px;
+  line-height: 1.5;
+}
+
+.home-button{
+ 
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding: 10px;
+
+  background-color: rgba(59, 59, 243, 0.5);
+  font-size: large;
+  text-decoration: none;
+  color: rgb(250, 247, 247);
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 1px;
+  word-spacing: 5px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px 5px rgb(255, 255, 255,0.3);
   
+}
+.home-button:hover{
+  background-color: blue;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+
+
   .home-container {
-    background-color: rgb(164, 35, 189,0.3);
-    padding-top: 70px;
-    padding-bottom: 250px;
-    text-align: center;
+    background-color: white;
+     margin-top: 50px;
+    margin-bottom: 150px; 
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    gap: 50px;
+   
   }
   
   .retailer, .customer {
-    background-color: white;
+   
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgb(17, 17, 17);
     padding: 30px 40px;
     width: 300px;
-    height: 300px; /* Adjust height as needed */
+    height: 300px;
     transition: transform 0.3s ease;
     background-size: cover;
     background-position: center;
@@ -26,7 +119,6 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    color: #ffffff;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   }
   
@@ -42,16 +134,18 @@
     transform: scale(1.05);
   }
   
-  .h1 {
-    font-size: 34px;
-    margin-bottom: 200px;
-    color: rgb(214, 41, 41);
+  .home-names {
+    font-size: 40px;
+    font: bold;
+    margin-bottom: 100px;
+    color: rgb(241, 241, 241);
+    background-color: rgb(0, 0, 0,0.3);
   }
   
   .button {
-    display: inline-block;
+     display: inline-block;
     padding: 10px 20px;
-    font-size: 18px;
+    font-size: 22px;
     color: #ffffff;
     background-color: rgba(5, 31, 60, 0.8);
     border: none;
@@ -59,10 +153,9 @@
     text-decoration: none;
     transition: background-color 0.3s ease;
     margin-bottom: 20px;
+   text-align: center; 
+    
   }
   
-  .button:hover {
-    background-color: rgba(215, 220, 225, 0.8);
-    color: black;
-  }
   
+    */

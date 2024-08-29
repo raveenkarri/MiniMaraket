@@ -75,7 +75,7 @@ export const fetchAddCartItems = async (cartProducts, token) => {
 
 // Fetch application areas
 export const fetchAppAreas = async () => {
-  return await apiUserRequests("get", "/areas");
+  return await apiUserRequests("get", "/shops");
 };
 
 // Fetch products based on selected area, category, and shop

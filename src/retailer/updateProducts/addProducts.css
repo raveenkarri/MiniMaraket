@@ -1,0 +1,61 @@
+/* addProducts.css */
+
+.addProducts-container {
+  max-width: 600px;
+  margin: 10% auto 0 auto; /* 10% margin from the top */
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.addProducts-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.addProducts-container label {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.addProducts-container input[type="text"],
+.addProducts-container input[type="number"] {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.addProducts-container input[type="text"]:focus,
+.addProducts-container input[type="number"]:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.addProducts-container input::placeholder {
+  color: #aaa;
+}
+
+.addProducts-container button[type="submit"] {
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.addProducts-container button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.addProducts-container .image-upload-container {
+  margin-bottom: 20px;
+}

@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import "./Product.css";
-
+import axios from "axios";
 import { contextStore } from "../..";
-import { fetchAddCartItems, fetchSingleProduct } from "../AxiosFunctions";
+import { fetchAddCartItems, fetchSingleProduct } from "../../AxiosFunctions";
 
 const Product = () => {
   const [product, setProduct] = useState(null);
@@ -19,37 +19,38 @@ const Product = () => {
     productname: " ",
     cost: null,
     description: " ",
+    imageUrl: "",
   });
 
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const res = await fetchSingleProduct(
-          selectedAreaName,
-          selectedCategoryName,
-          selectedShopName,
-          selectedProduct
+        const res = await axios.get(
+          `/shops/${selectedAreaName}/${selectedCategoryName}/${selectedShopName}`
         );
-        // Set cartProducts after product is fetched
-        setCartProducts({
-          productname: res.productname,
-          cost: res.cost,
-          description: res.description,
-        });
-        setProduct(res);
+        console.log(res);
+        console.log(location.state);
+
+        let products = res.data.shops[0].products;
+        console.log({ products });
+        setProduct(
+          products.filter((product) => product.productname === selectedProduct)
+        );
+
+        //setProduct(res.data.shops[0]);
       } catch (error) {
         console.error("Error fetching product:", error);
       }
     };
 
-    if (
-      selectedShopName &&
-      selectedAreaName &&
-      selectedCategoryName &&
-      selectedProduct
-    ) {
-      fetchProduct();
-    }
+    // if (
+    //   selectedselctedShopName &&
+    //   selectedAreaName &&
+    //   selectedCategoryName &&
+    //   selectedProduct
+    // ) {
+    fetchProduct();
+    // }
   }, [
     selectedShopName,
     selectedAreaName,
@@ -60,7 +61,13 @@ const Product = () => {
   const addtoCart = async () => {
     try {
       const res = await fetchAddCartItems(cartProducts, token);
-
+      // Set cartProducts after product is fetched
+      setCartProducts({
+        productname: product[0].productname,
+        cost: product[0].cost,
+        description: product[0].description,
+        imageUrl: product[0].imageUrl,
+      });
       setItemslen((prev) => prev + 1);
       alert(res.message);
     } catch (error) {
@@ -73,14 +80,18 @@ const Product = () => {
         <div className="product-content">
           <img
             className="product-image"
-            src={`https://mini-market-api.onrender.com/${product.image}`}
-            alt={product.productname}
+            src={product[0].imageUrl}
+            alt={product[0].productname}
           />
           <div className="product-details">
-            <h1>Prouct Name : {product.productname}</h1>
-            <p>Description : {product.description}</p>
+            <h1>Prouct Name : {product[0].productname}</h1>
+            <p>Description : {product[0].description}</p>
             <p>Price : {product.cost}</p>
-            <button type="button" onClick={addtoCart}>
+            <button
+              className="product-addToCart"
+              type="button"
+              onClick={addtoCart}
+            >
               Add To Cart
             </button>
           </div>

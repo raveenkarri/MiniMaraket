@@ -1,0 +1,90 @@
+/* General page layout */
+.customerlogin-container, .customer-container {
+  background-color: rgb(206, 202, 202);
+  width: 100%;
+  height: 100vh;
+  font-family: "Moderustic", sans-serif;
+
+}
+
+.loginform, .registerform {
+  position: absolute;
+  top: 10%;
+  left: 35%;
+  max-width: 400px; 
+  margin: 100px auto;
+  height: 400px;
+  padding: 20px;
+  background-color: rgba(214, 173, 125, 0.5);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
+/* Form Elements */
+.login-title, .register-title {
+  text-align: center;
+  color: #0a0a0a;
+  font-size: 24px;
+  text-transform: uppercase;
+}
+
+.Lable-login, .Lable-register {
+  font-size: 24px;
+  color: #0a0a0a;
+  margin-top: 10px;
+  margin-bottom: 1px;
+}
+
+.login-inputs, .register-inputs {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #1f1e1e;
+  border-radius: 5px;
+  font-size: 20px;
+  background-color: rgb(5, 5, 5,0.1);
+}
+
+.login-inputs:hover, .register-inputs:hover {
+  background-color: white;
+}
+
+.loginButtonClss, .buttonclss {
+  width: 100%;
+  font-size: 22px;
+  padding: 5px;
+  margin-bottom: 10px;
+  color: #0e0d0d; 
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.loginButtonClss:hover, .buttonclss:hover {
+  background-color: #07284d;
+  color: #fcf6f6;
+}
+
+.login-redirect-block, .register-redirect-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttonclss-redirect {
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 22px;
+  color: #050505;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.buttonclss-redirect:hover {
+  background-color: #07284d;
+  color: #fcf6f6;
+}

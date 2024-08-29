@@ -1,0 +1,104 @@
+.myProducts-container {
+  max-width: 1000px;
+  margin: 10% auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.myProducts-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.shop-info {
+  text-align: left;
+}
+
+.shop-info h2 {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.shop-info h1 {
+  font-size: 2rem;
+  color: #007bff;
+}
+
+.add-product-button {
+  background-color: #28a745;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.add-product-button:hover {
+  background-color: #218838;
+}
+
+.myProducts-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px,1rem));
+  gap: 20px;
+  padding: 0;
+  list-style: none;
+}
+
+.myProducts-item {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.myProducts-item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.myProducts-item-details h3 {
+  font-size: 1.2rem;
+  margin: 0;
+  color: #333;
+}
+
+.myProducts-item-details p {
+  margin: 5px 0;
+  color: #666;
+}
+
+.myProducts-item-details .myProducts-price {
+  font-weight: bold;
+  color: #007bff;
+}
+.myProducts-item-details button {
+  padding: 8px 12px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.myProducts-item-details .update-button {
+ 
+  background-color: #28a745; /* Green color */
+  color: white;
+}
+
+.myProducts-item-details .delete-button {
+  background-color: #dc3545; /* Red color */
+  color: white;
+}
+
+.myProducts-item-details button:hover {
+  opacity: 0.9;
+}

@@ -1,17 +1,17 @@
-body {
-  margin: 0;
-  padding-top: 120px; /* Add padding to prevent content from hiding behind the navbar */
-}
+
 .navbar {
  
   position:fixed;
+  padding-top: 10px;
+  padding-bottom: 10px;
   top: 0;
   width: 100%;
   background-color: #333;
   color: #fff;
-  overflow: hidden;
- 
-
+ display: flex;
+ overflow: hidden;
+  height: 100px; /* Set this to the height of your navbar */
+  z-index: 1000; 
 }
 
 .navbar-logo-title {
@@ -22,7 +22,8 @@ body {
   display: inline;
 }
 
-.navbar img {
+
+.navbar-logo{
   width: 190px;
   height: 100px;
   margin-right: 20px;
@@ -30,7 +31,7 @@ body {
 
 .navbar-title {
   margin: 0;
-  color: chartreuse;
+  color: rgb(0, 217, 255);
   font-size: 44px;
 }
 
@@ -41,7 +42,7 @@ body {
 }
 
 .link-container .home {
-  color: chartreuse;
+  color:  rgb(0, 217, 255);
   text-decoration: none;
   font-size: 38px;
   display: flex;
@@ -59,13 +60,12 @@ body {
   color: rgb(211, 126, 22);
 }
 
-body {
-  margin: 0;
-  padding-top: 0px;
-}
+
 .logout-button{
   background-color: rgb(250, 246, 246);
   color: black;
+  padding: 5px;
+  font-size: 18px;
   border-radius: 10px;
   margin: 10px;
 }
@@ -78,7 +78,13 @@ body {
 
 .cart-button{
   background-color: rgb(231, 229, 229);
+  font-size: 18px;
+  padding: 5px;
   color: black;
   border-radius: 10px;
   margin-right: 20px;
+}
+.cart-button:hover{
+  background-color: blueviolet;
+  color: white;
 }
