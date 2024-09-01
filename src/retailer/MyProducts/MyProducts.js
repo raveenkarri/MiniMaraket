@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
-import "./myProducts.css"; // Import the CSS file
+import "./myProducts.css";
 import { Link } from "react-router-dom";
 
 const MyProducts = () => {
@@ -55,7 +55,9 @@ const MyProducts = () => {
           <h2>Hi {shop.username},</h2>
           <h1>Welcome to {shop.shopname}</h1>
         </div>
-        <button className="add-product-button">Add Product</button>
+        <button className="add-product-button">
+          <Link to="/retailer/addproduct">Add Product</Link>
+        </button>
       </div>
       <ul className="myProducts-list">
         {products.map((product) => (

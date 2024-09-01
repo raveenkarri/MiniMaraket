@@ -1,30 +1,36 @@
-/* addProducts.css */
 
 .addProducts-container {
-  max-width: 600px;
-  margin: 10% auto 0 auto; /* 10% margin from the top */
+  max-width: 400px;
+  margin: 10% auto 0 auto; 
   padding: 20px;
-  background-color: #f9f9f9;
+  background-color: #d8d5d5;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  font-family: Arial, sans-serif;
+    font-family: "Moderustic", sans-serif;
 }
 
 .addProducts-container form {
   display: flex;
   flex-direction: column;
+  column-gap: 0;
+  
+}
+.addProducts-container h2{
+  color: #0056b3;
+  font-size: 22;
+
 }
 
 .addProducts-container label {
-  font-size: 1rem;
+  font-size: 18px;
   color: #333;
-  margin-bottom: 8px;
+  font-weight: bold;
+  
 }
 
 .addProducts-container input[type="text"],
 .addProducts-container input[type="number"] {
   padding: 10px;
-  margin-bottom: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 1rem;

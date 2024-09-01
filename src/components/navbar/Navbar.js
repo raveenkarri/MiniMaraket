@@ -8,7 +8,7 @@ import { fetchUser, fetchCartItems } from "../../AxiosFunctions";
 const Navbar = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState("");
-  const { token, setToken, itemsLen, setItemslen } = useContext(contextStore); // Include setItemslen
+  const { token, setToken, itemsLen, setItemslen } = useContext(contextStore);
 
   const location = useLocation();
 
@@ -20,7 +20,6 @@ const Navbar = () => {
 
           setUser(res.user.username);
 
-          // Fetch cart items and update itemsLen
           const cartRes = await fetchCartItems(token);
           setItemslen(cartRes.cartProducts.length);
         }

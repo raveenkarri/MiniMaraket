@@ -87,6 +87,8 @@ const AddProducts = () => {
     <div className="addProducts-container">
       <div>
         <form onSubmit={handleSubmit}>
+          <h2>Add New Products:</h2>
+          <hr />
           <label>Product Name:</label>
           <br />
           <input

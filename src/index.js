@@ -8,11 +8,10 @@ import { Provider } from "react-redux";
 import store from "./store/store";
 import Cookies from "js-cookie";
 
-axios.defaults.baseURL = "http://localhost:5005"; // "http://localhost:5005"; //"https://mini-market-api.onrender.com";
+axios.defaults.baseURL = "https://mini-market-api.onrender.com"; // "http://localhost:5005"; //"https://mini-market-api.onrender.com";
 
 export const contextStore = createContext();
 
-// Create a provider component
 const StoreProvider = ({ children }) => {
   const [token, setToken] = useState(() => Cookies.get("token") || "");
   const [shopToken, setShopToken] = useState(
